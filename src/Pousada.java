@@ -58,6 +58,7 @@ public class Pousada {
     }
 
     public void cancelaReserva(ReservaQuarto reservaQuarto){
+        reservaQuarto.getQuarto().setOcupado(false);
         reservas.remove(reservaQuarto);
     }
 
@@ -65,7 +66,7 @@ public class Pousada {
         for (ReservaQuarto r : reservas){
             if (r.getDataCheckout().before(new Date())){
                 r.getQuarto().setOcupado(false);
-                r.setHospede(null);
+                reservas.remove(r);
             }
         }
     }
