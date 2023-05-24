@@ -3,6 +3,5 @@ public class Main {
 
         Pousada pousada = Pousada.getInstance();
 
-
     }
 }
