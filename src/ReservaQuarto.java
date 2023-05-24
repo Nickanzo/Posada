@@ -8,6 +8,14 @@ public class ReservaQuarto {
     private Quarto quarto;
     private Hospede hospede;
 
+    public Hospede getHospede() {
+        return hospede;
+    }
+
+    public void setHospede(Hospede hospede) {
+        this.hospede = hospede;
+    }
+
     public int getNumeroReserva() {
         return numeroReserva;
     }

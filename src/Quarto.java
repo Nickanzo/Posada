@@ -1,7 +1,7 @@
 public class Quarto {
 
     enum Tipo{
-        solteiro, casal
+        Solteiro, Casal
     }
     private int numero;
     private Tipo tipo;
