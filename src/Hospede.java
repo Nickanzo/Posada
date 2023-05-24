@@ -1,7 +1,6 @@
 public class Hospede {
     private String nome;
     private String cpf;
-    private Endereco endereco;
     private String email;
     private String telefone;
     private Hospede acompanhante;
@@ -36,14 +35,6 @@ public class Hospede {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
 
     public Hospede getAcompanhante() {

@@ -1,13 +1,17 @@
-public class Quarto {
+public class Quarto implements Prototype{
 
-    enum Tipo{
-        Solteiro, Casal
-    }
     private int numero;
-    private Tipo tipo;
     private double precoDiaria;
     private boolean ocupado;
     private int numeroCamas;
+    public Quarto() {
+    }
+    private Quarto(Quarto quarto) {
+        this.numero = quarto.getNumero();
+        this.precoDiaria = quarto.getPrecoDiaria();
+        this.ocupado = quarto.isOcupado();
+        this.numeroCamas = quarto.getNumeroCamas();
+    }
 
     public int getNumero() {
         return numero;
@@ -15,14 +19,6 @@ public class Quarto {
 
     public void setNumero(int numero) {
         this.numero = numero;
-    }
-
-    public Tipo getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(Tipo tipo) {
-        this.tipo = tipo;
     }
 
     public double getPrecoDiaria() {
@@ -47,5 +43,9 @@ public class Quarto {
 
     public void setNumeroCamas(int numeroCamas) {
         this.numeroCamas = numeroCamas;
+    }
+    @Override
+    public Quarto clone() {
+        return new Quarto(this);
     }
 }

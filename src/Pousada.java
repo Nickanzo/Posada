@@ -11,6 +11,19 @@ public class Pousada {
     private Pousada() {
         reservas = new ArrayList<>();
         quartos = new ArrayList<>();
+        populaQuartos();
+    }
+    private void populaQuartos(){
+        Quarto quartoPadrao = new Quarto();
+        quartoPadrao.setPrecoDiaria(120.00);
+        quartoPadrao.setOcupado(false);
+        quartoPadrao.setNumeroCamas(2);
+
+        for (int i = 1; i < 16; i++){
+            Quarto q = quartoPadrao.clone();
+            q.setNumero(i);
+            quartos.add(q);
+        }
     }
     public static Pousada getInstance() {
         if (instance == null){
@@ -26,9 +39,7 @@ public class Pousada {
             System.err.println("O hospede ja possui uma reserva!");
             return;
         }
-        Quarto q = hospede.getAcompanhante() == null ?
-                buscaQuartosDisponiveis(Quarto.Tipo.Solteiro) :
-                buscaQuartosDisponiveis(Quarto.Tipo.Casal);
+        Quarto q = buscaQuartosDisponiveis();
         if (q==null){
             System.err.println("Nao tem quartos disponiveis !");
             return;
@@ -71,13 +82,14 @@ public class Pousada {
         }
     }
 
-    public Quarto buscaQuartosDisponiveis(Quarto.Tipo tipo){
+    public Quarto buscaQuartosDisponiveis(){
         for (Quarto q : quartos){
-            if (!q.isOcupado() && q.getTipo()==tipo){
+            if (!q.isOcupado()){
                 return q;
             }
         }
         return null;
     }
+
 
 }
