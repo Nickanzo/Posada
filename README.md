@@ -4,7 +4,7 @@ Este projeto é uma simulação de uma pousada chamada Pousada Alegria e Fantasi
 
 ## Como utilizar
 
-Link de video-explicação:
+Link de video-explicação: https://clipchamp.com/watch/Je70tSJJkUJ
 
 ## Integrantes
 
