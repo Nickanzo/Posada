@@ -82,6 +82,12 @@ public class Pousada {
         }
     }
 
+    public void listaReservas(){
+        for (ReservaQuarto r : reservas){
+            System.out.println(r.toString());
+        }
+    }
+
     public Quarto buscaQuartosDisponiveis(){
         for (Quarto q : quartos){
             if (!q.isOcupado()){
@@ -89,6 +95,16 @@ public class Pousada {
             }
         }
         return null;
+    }
+
+    public void statusQuartos(){
+        for (Quarto q : quartos){
+            if (q.isOcupado()){
+                System.err.println("Quarto " + q.getNumero() + " ocupado");
+            }else{
+                System.out.println("Quarto " + q.getNumero() + " disponível");
+            }
+        }
     }
 
 

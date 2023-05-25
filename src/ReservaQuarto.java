@@ -47,4 +47,23 @@ public class ReservaQuarto {
     public void setQuarto(Quarto quarto) {
         this.quarto = quarto;
     }
+
+    @Override
+    public String toString() {
+        if (hospede.getAcompanhante() != null){
+            return "********************************" + "\n" +
+                    "Reserva numero " + numeroReserva + "\n" +
+                    "Hospedes: " + hospede.getNome() + " | " +
+                    hospede.getAcompanhante().getNome() + "\n" +
+                    "Quarto: " + quarto.getNumero() + "\n" +
+                    "Data de entrada: " + dataCheckin + "\n" +
+                    "Data de saida " + dataCheckout + "\n";
+        }
+        return  "*******************************" + "\n" +
+                "Reserva numero " + numeroReserva + "\n" +
+                "Hospede: " + hospede.getNome() + "\n" +
+                "Quarto: " + quarto.getNumero() + "\n" +
+                "Data de entrada: " + dataCheckin + "\n" +
+                "Data de saida " + dataCheckout + "\n";
+    }
 }
