@@ -7,37 +7,45 @@ public class Main {
     static ArrayList<Hospede> listaHospedes = new ArrayList<>();
     public static void main(String[] args) {
 
+        //Criação da Instância
         Pousada pousada = Pousada.getInstance();
-
+        //Popula lista de Hospedes para execução
         criaHospedes();
-
+        //Cria Random para data fictícia aleatória
         Random r = new Random();
-
-        for (Hospede h : listaHospedes){
-            pousada.criaReserva(h,new Date(2023,04,r.nextInt(30)),new Date(2023,05,r.nextInt(25)));
+        //Cria Reserva inválida
+        pousada.criaReserva(new HospedeBuilder().addNome("Sandro Ulisses").addCpf("21354884513").build(),
+                new Date(2023, 05, 20), new Date(2023, 05, 15));
+        //Leitura dos hospedes
+        for (Hospede h : listaHospedes) {
+            pousada.criaReserva(h, new Date(2023, 04, r.nextInt(30)), new Date(2023, 05, r.nextInt(25)));
         }
-
+        //Uso de cancelamento de reservas
+        pousada.cancelaReserva(pousada.procuraReserva("65432109876"));
+        //Listagem dos quartos e sua disponibilidade
         pousada.statusQuartos();
-
+        //Listagem das reservas ativas
         pousada.listaReservas();
-
     }
 
     public static void criaHospedes(){
 
-        Hospede hospede1 = new HospedeBuilder().addNome("João Silva")
+        Hospede hospede1 = new HospedeBuilder()
+                .addNome("João Silva")
                 .addCpf( "12345678901")
                 .addEmail("joao.silva@example.com")
                 .addTelefone("(11) 98765-4321")
                 .build();
 
-        Hospede hospede2 = new HospedeBuilder().addNome("Maria Santos")
+        Hospede hospede2 = new HospedeBuilder()
+                .addNome("Maria Santos")
                 .addCpf("98765432109")
                 .addEmail("maria.santos@example.com")
                 .addTelefone("(22) 99876-5432")
                 .build();
 
-        Hospede hospede3 = new HospedeBuilder().addNome("Pedro Oliveira")
+        Hospede hospede3 = new HospedeBuilder()
+                .addNome("Pedro Oliveira")
                 .addCpf("56789012345")
                 .addEmail("pedro.oliveira@example.com")
                 .addTelefone("(33) 91234-5678")

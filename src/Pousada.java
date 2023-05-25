@@ -19,7 +19,7 @@ public class Pousada {
         quartoPadrao.setOcupado(false);
         quartoPadrao.setNumeroCamas(2);
 
-        for (int i = 1; i < 16; i++){
+        for (int i = 1; i < 11; i++){
             Quarto q = quartoPadrao.clone();
             q.setNumero(i);
             quartos.add(q);
@@ -53,9 +53,9 @@ public class Pousada {
                     addDataCheckout(checkout).
                     build();
             reservas.add(rq);
-            System.out.println("Reserva adicionada com sucesso !");
+            System.out.println("Reserva " + rq.getNumeroReserva() + " adicionada com sucesso !");
         } catch (Exception e){
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 
@@ -69,8 +69,11 @@ public class Pousada {
     }
 
     public void cancelaReserva(ReservaQuarto reservaQuarto){
+
+        int numeroReserva = reservaQuarto.getNumeroReserva();
         reservaQuarto.getQuarto().setOcupado(false);
         reservas.remove(reservaQuarto);
+        System.out.println("Reserva " + numeroReserva + " cancelada com sucesso !");
     }
 
     public void limpaReservas(){
